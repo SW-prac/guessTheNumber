@@ -38,9 +38,9 @@
 
 | 담당 | GitHub 계정 | 역할 | 한 일 |
 |------|-------------|------|-------|
-| 소스코드 | **yahofarewell** (`diddh789@gmail.com`) | 빌드/테스트 대상 코드 | 게임 로직을 **Java + JUnit5** 로 포팅. `game/` 패키지(`NumberGuessingGame`, `Difficulty`, `GuessResult`, `BestScore`)와 **단위 테스트 14개** 작성. → Jenkins가 컴파일·테스트하는 대상 |
-| Docker 세팅 | **andychoi21** (`show8621@naver.com`) | CI 실행 환경 | `guessNumberDocker/` 의 **docker-compose** 작성 — Jenkins + nGrinder(controller/agent) + ngrok 컨테이너 구성. ngrok 토큰은 `.env`(미커밋)로 분리 |
-| Jenkins / 인스턴스 / CD | **박보성 / Boseong0902** (`alskdj7879@gmail.com`) | 파이프라인 & 배포 | **Jenkinsfile**(파이프라인 정의) 작성, Jenkins Job·Credentials·SMTP·**GitHub webhook** 설정, **EC2 배포(Deploy 단계)** 연결 |
+| 소스코드 | **김양오** (`diddh789@gmail.com`) | 빌드/테스트 대상 코드 | 게임 로직을 **Java + JUnit5** 로 포팅. `game/` 패키지(`NumberGuessingGame`, `Difficulty`, `GuessResult`, `BestScore`)와 **단위 테스트 14개** 작성. → Jenkins가 컴파일·테스트하는 대상 |
+| Docker 세팅 | **최인태** (`show8621@naver.com`) | CI 실행 환경 | `guessNumberDocker/` 의 **docker-compose** 작성 — Jenkins + nGrinder(controller/agent) + ngrok 컨테이너 구성. ngrok 토큰은 `.env`(미커밋)로 분리 |
+| Jenkins / 인스턴스 / CD | **박보성** (`alskdj7879@gmail.com`) | 파이프라인 & 배포 | **Jenkinsfile**(파이프라인 정의) 작성, Jenkins Job·Credentials·SMTP·**GitHub webhook** 설정, **EC2 배포(Deploy 단계)** 연결 |
 
 ---
 
