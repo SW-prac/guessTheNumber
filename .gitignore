@@ -6,3 +6,4 @@ lib/
 test-reports/
 **/sources.txt
 *.class
+.idea/
