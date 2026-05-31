@@ -56,6 +56,19 @@ pipeline {
                 '''
             }
         }
+
+        stage('Deploy') {
+            steps {
+                echo "[+] Deploying index.html to EC2 (runs only if build + tests passed)..."
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'SSH_KEY', usernameVariable: 'SSH_USER')]) {
+                    sh '''
+                        scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$SSH_KEY" \
+                            index.html ${SSH_USER}@3.36.48.154:~/coming-soon/index.html
+                        echo "[+] Deployed -> http://3.36.48.154:8000"
+                    '''
+                }
+            }
+        }
     }
 
     post {
@@ -68,7 +81,7 @@ pipeline {
             echo "Build and test succeeded!"
             mail to: "${NOTIFY_EMAIL}",
                  subject: "[Jenkins] SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
-                 body: "빌드 및 테스트 성공.\n\n콘솔 출력: ${BUILD_URL}console\n테스트 결과(txt): ${BUILD_URL}artifact/${REPORT_DIR}/test-output.txt"
+                 body: "빌드/테스트/배포 성공.\n\n배포됨: http://3.36.48.154:8000\n콘솔 출력: ${BUILD_URL}console\n테스트 결과(txt): ${BUILD_URL}artifact/${REPORT_DIR}/test-output.txt"
         }
         failure {
             echo "Build or test failed!"
