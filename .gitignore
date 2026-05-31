@@ -1,2 +1,8 @@
 .omc/
 .DS_Store
+.claude/
+classes/
+lib/
+test-reports/
+**/sources.txt
+*.class
